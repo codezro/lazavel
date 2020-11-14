@@ -1,0 +1,132 @@
+body{
+    background-color: #E5E5E5;
+}
+
+nav.top{
+    height: 25px;
+    background-color: #FFF;
+}
+
+nav.top ul{
+    margin-right:10%;
+}
+
+nav.top, nav.top a{
+    color: #000000;
+    line-height: unset;
+}
+
+
+nav.bottom{
+    background-color: #FFF;
+    color: #000000;
+}
+
+img.logo{
+    width:80px; 
+}
+
+.bg-o{
+    background-color: #E24A1A;
+}
+
+button.bg-o{
+    background-color: #E24A1A;
+}
+
+button.bg-o:hover{
+    background-color: #E24A1A;
+    -webkit-box-shadow: 0 0 11px #584641;  /* Safari 3-4, iOS 4.0.2 - 4.2, Android 2.3+ */
+    -moz-box-shadow:    0 0 11px #584641;  /* Firefox 3.5 - 3.6 */
+    box-shadow:         0 0 11px #584641; 
+}
+
+.width-100{
+    width: 100%;
+}
+
+.search-bar{
+    border: 1px solid #CACACA !important;
+    box-sizing: border-box !important;
+    height: 2.2rem !important;
+}
+
+.search-icon{
+    width: 3rem !important;
+    height: 2.2rem !important;
+    left: 1153px;
+}
+
+.search-icon i{
+    line-height: 2.2rem !important;
+}
+
+#app{
+    padding-bottom: 80px;
+}
+
+.footer{
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    text-align: center;
+    padding: 20px 0;
+    background-color: #FFF;
+    z-index: 1;
+}
+
+.padding-5{
+    padding: 5px !important;
+}
+
+.padding-10{
+    padding: 10px !important;
+}
+
+.padding-15{
+    padding: 15px !important;
+}
+
+.padding-20{
+    padding: 20px !important;
+}
+
+.padding-top-5{
+    padding-top: 5px !important;
+}
+
+.padding-top-10{
+    padding-top: 10px !important;
+}
+
+.padding-top-15{
+    padding-top: 15px !important;
+}
+
+.padding-top-80{
+    padding-top: 80px !important;
+}
+
+.margin-20{
+    margin: 20px !important;
+}
+
+input{
+    background: #F4F4F4 !important;
+    border: 0 !important;
+    padding: 0 0 0 .5rem !important;
+}
+
+*:focus {
+    border-color: none !important;
+    -webkit-box-shadow: none !important;
+    box-shadow: none !important;
+}
+
+label{
+    font-size: 1rem;
+}
+
+.align-left{
+    text-align:left;
+}
