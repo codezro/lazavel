@@ -4,7 +4,7 @@
 <div class="container padding-top-80">
     <div class="row justify-content-center">
         <div class="col-md-8">
-            <div class="card padding-20">
+            <div class="card padding-20 center">
                 SELLER PAGE - UNDER CONSTRUCTION
             </div>
         </div>

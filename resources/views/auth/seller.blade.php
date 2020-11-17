@@ -47,22 +47,22 @@
                 <div class="row">
                     <div class="col l4 offset-l4 center white padding-20 ">
                         <form method="POST" action="{{ route('login') }}">
-                        @csrf
-                        <label for="email" class="black-text left">Email</label>
-                        <input name="email" class="@error('email') invalid @enderror" value="{{ old('email') }}"/>
-                        @error('email')
-                        <div class="red-text align-left" style="text-align:left;">
-                            <strong>{{ $message }}</strong>
-                        </div>
-                        @enderror
-                        <label for="password" class="black-text left">Password</label>
-                        <input name="password" type="password" class="@error('password') invalid @enderror"/>
-                        @error('password')
-                        <div class="red-text align-left" style="text-align:left;">
-                            <strong>{{ $message }}</strong>
-                        </div>
-                        @enderror
-                        <button type="submit" class="waves-effect waves-light btn width-100">Login</button>
+                            @csrf
+                            <label for="email" class="black-text left">Email</label>
+                            <input name="email" class="@error('email') invalid @enderror" value="{{ old('email') }}"/>
+                            @error('email')
+                                <div class="red-text align-left" style="text-align:left;">
+                                    <strong>{{ $message }}</strong>
+                                </div>
+                            @enderror
+                            <label for="password" class="black-text left">Password</label>
+                            <input name="password" type="password" class="@error('password') invalid @enderror"/>
+                            @error('password')
+                                <div class="red-text align-left" style="text-align:left;">
+                                    <strong>{{ $message }}</strong>
+                                </div>
+                            @enderror
+                            <button type="submit" class="waves-effect waves-light btn width-100">Login</button>
                         </form>
 
                         @if (Route::has('password.request'))
