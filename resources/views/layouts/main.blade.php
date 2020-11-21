@@ -22,9 +22,9 @@
     <link href="https://fonts.googleapis.com/css?family=Nunito" rel="stylesheet">
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <!-- Styles -->
-    <link href="{{ asset('resources/app.css') }}" rel="stylesheet">
+    <link href="/resources/app.css" rel="stylesheet">
     <!-- Scripts -->
-    <script src="{{ asset('resources/app.js') }}" defer></script>
+    <script src="/resources/app.js" defer></script>
 </head>
 <body>
     <div id="app">
