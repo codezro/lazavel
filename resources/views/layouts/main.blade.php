@@ -22,44 +22,21 @@
     <link href="https://fonts.googleapis.com/css?family=Nunito" rel="stylesheet">
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <!-- Styles -->
-    <link href="{{ asset('resources/app.css') }}" rel="stylesheet">
+    <link href="/resources/app.css" rel="stylesheet">
     <!-- Scripts -->
-    <script src="{{ asset('resources/app.js') }}" defer></script>
+    <script src="/resources/app.js" defer></script>
 </head>
 <body>
     <div id="app">
-        <nav class="top">
-            <div class="nav-wrapper">
-            @guest
-                <ul id="nav-mobile" class="right">
-                    <li><a href="{{ route('login') }}">Login</a></li>
-                    <li>|</li>
-                    <li><a  href="{{ route('register') }}">Register</a></li>
-                </ul>
-            @else
-                <ul id="nav-mobile" class="right">
-                    <li><a href="#">{{ Auth::user()->username }}</a></li>
-                    <li>|</li>
-                    <li><a  href="{{ route('logout') }}"  onclick="event.preventDefault();document.getElementById('logout-form').submit();">Logout</a></li>
-                </ul>
-                <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
-                    @csrf
-                </form>
-            @endguest
-            </div>
-        </nav>
-        <nav class="bottom">
-            <div class="row">
-                <div class="col s1 offset-s1 padding-top-10"><img src="{{ asset('resources/images/lazavel2.PNG') }}" class="logo"/></div>
-                <div class="col s7 row offset-s3 padding-top-15"><input class="col s8 search-bar"/><div class="bg-o col s1 search-icon"><i class="white-text large material-icons">search</i></div></div>
-            </div>
-        </nav>
 
+        @include('layouts._components.navbartop')
+        @include('layouts._components.navbar')
         <main class="">
             @yield('content')
         </main>
         
         <div class="footer">Copy Right Codex Bootcamp</div>
+        
     </div>
 </body>
 </html>

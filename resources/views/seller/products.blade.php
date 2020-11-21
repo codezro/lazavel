@@ -5,7 +5,7 @@
     <div class="row justify-content-center">
         <div class="col-md-8">
             <div class="card padding-20 center">
-                HOME PAGE - UNDER CONSTRUCTION
+                SELLER PAGE - UNDER CONSTRUCTION
             </div>
         </div>
     </div>
