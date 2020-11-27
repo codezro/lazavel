@@ -127,6 +127,24 @@ label{
     font-size: 1rem;
 }
 
-.align-left{
-    text-align:left;
+.star .date{
+  color: #8C8C8C;
+}
+
+nav[role="navigation"]{
+  text-align: center;
+  background-color: transparent;
+  border: unset;
+  color: #000000;
+  outline: none !important;
+  -webkit-box-shadow: none !important;
+  box-shadow: none !important;
+}
+
+nav[role="navigation"] a{
+  color: #000000;
+}
+
+.hidden{
+  display: none;
 }

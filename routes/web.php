@@ -23,5 +23,8 @@ Route::get('/seller/login', function () {
 
 Auth::routes();
 
+Route::get('products/search', [App\Http\Controllers\ProductsController::class,'search']);
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
-Route::get('/seller/products', [App\Http\Controllers\SellerController::class, 'products']);
+Route::get('/seller/reviews', [App\Http\Controllers\SellerController::class, 'reviews']);
+Route::resource('products', App\Http\Controllers\ProductsController::class);
+Route::patch('products/{id}/status', [App\Http\Controllers\ProductsController::class,'status']);
