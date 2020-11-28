@@ -11,7 +11,7 @@
                 <label for="email" class="black-text left">Email</label>
                 <input name="email" class="@error('email') invalid @enderror" value="{{ old('email') }}"/>
                 @error('email')
-                    <div class="red-text align-left" style="text-align:left;">
+                    <div class="red-text text-left" style="text-align:left;">
                         <strong>{{ $message }}</strong>
                     </div>
                 @enderror

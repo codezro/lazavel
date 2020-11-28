@@ -1,4 +1,4 @@
-<nav class="top">
+w<nav class="top">
     <div class="nav-wrapper">
         @guest
             <ul id="nav-mobile" class="right">
@@ -8,7 +8,7 @@
             </ul>
         @else
             <ul id="nav-mobile" class="right">
-                <li><a href="#">{{ Auth::user()->username }}</a></li>
+                <li><a href="#">{{ Auth::user()->username }}</a></li>wtt
                 <li>|</li>
                 <li><a  href="{{ route('logout') }}"  onclick="event.preventDefault();document.getElementById('logout-form').submit();">Logout</a></li>
             </ul>
