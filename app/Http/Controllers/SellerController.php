@@ -7,7 +7,7 @@ use Illuminate\Http\Request;
 class SellerController extends Controller
 {
     public function __construct(){
-        $this->middleware(['auth','isSeller']);
+        $this->middleware(['auth','verify.seller']);
     }
 
     public function reviews(){

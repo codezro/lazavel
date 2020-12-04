@@ -1,4 +1,4 @@
-w<nav class="top">
+<nav class="top">
     <div class="nav-wrapper">
         @guest
             <ul id="nav-mobile" class="right">

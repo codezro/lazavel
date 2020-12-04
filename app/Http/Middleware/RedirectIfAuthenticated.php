@@ -23,8 +23,6 @@ class RedirectIfAuthenticated
 
         foreach ($guards as $guard) {
             if (Auth::guard($guard)->check()) {
-                // default setup - might revert back or for future use
-                // return redirect(RouteServiceProvider::HOME);
                 return Auth::user()->isSeller? redirect('/products') : redirect(RouteServiceProvider::HOME);
             }
         }

@@ -232,3 +232,13 @@ select{
 .star .date{
   color: #8C8C8C;
 }
+
+button.alink{
+  border: unset;
+  cursor: pointer;
+  background-color: unset;
+}
+
+.navbar .link:hover{
+  background-color: #C8C8C8;
+}

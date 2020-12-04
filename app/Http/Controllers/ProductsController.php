@@ -8,7 +8,7 @@ use Illuminate\Http\Request;
 class ProductsController extends Controller
 {
     public function __construct(){
-        $this->middleware(['auth','isSeller']);
+        $this->middleware(['auth','verify.seller']);
     }
 
     /**

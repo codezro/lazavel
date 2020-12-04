@@ -11,11 +11,7 @@
                 <div class="box col">
                     <label for="name" class="black-text">Name</label>
                     <input name="name" class="@error('name') invalid @enderror" value="{{ old('name') }}"/>
-                    @error('name')
-                        <div class="red-text text-left" style="text-align:left;">
-                            <strong>{{ $message }}</strong>
-                        </div>
-                    @enderror
+                    @inlcude('partial/_error-msg.blade.php', ['attribute' => 'name'])
                 </div>
 
                 <div class="box col">
@@ -26,11 +22,7 @@
                         <option value="2">2</option>
                         <option value="3">3</option>
                     </select>
-                    @error('category')
-                        <div class="red-text text-left" style="text-align:left;">
-                            <strong>{{ $message }}</strong>
-                        </div>
-                    @enderror
+                    @inlcude('partial/_error-msg.blade.php', ['attribute' => 'category'])
                 </div>
 
                 <div class="space"></div>
@@ -38,31 +30,19 @@
                 <div class="box col">
                     <label for="retail_price" class="black-text">Retail Price</label>
                     <input name="retail_price" class="half @error('retail_price') invalid @enderror" value="{{ old('retail_price') }}"/>
-                    @error('retail_price')
-                        <div class="red-text text-left" style="text-align:left;">
-                            <strong>{{ $message }}</strong>
-                        </div>
-                    @enderror
+                    @inlcude('partial/_error-msg.blade.php', ['attribute' => 'retail_price'])
                 </div>
 
                 <div class="box col">
                     <label for="sale_price" class="black-text">Sale Price</label>
                     <input name="sale_price" class="half @error('sale_price') invalid @enderror" value="{{ old('sale_price') }}"/>
-                    @error('sale_price')
-                        <div class="red-text text-left" style="text-align:left;">
-                            <strong>{{ $message }}</strong>
-                        </div>
-                    @enderror
+                    @inlcude('partial/_error-msg.blade.php', ['attribute' => 'sale_price'])
                 </div>
 
                 <div class="box col">
                     <label for="details" class="black-text">Sale Price</label>
                     <textarea name="details" class="@error('details') invalid @enderror" value="{{ old('details') }}" id="" cols="30" rows="10"></textarea>
-                    @error('details')
-                        <div class="red-text text-left" style="text-align:left;">
-                            <strong>{{ $message }}</strong>
-                        </div>
-                    @enderror
+                    @inlcude('partial/_error-msg.blade.php', ['attribute' => 'details'])
                 </div>
                 
                 <div class="space"></div>
@@ -86,11 +66,7 @@
                         </label>
                         </p>
                     </div>
-                    @error('status')
-                        <div class="red-text text-left" style="text-align:left;">
-                            <strong>{{ $message }}</strong>
-                        </div>
-                    @enderror
+                    @inlcude('partial/_error-msg.blade.php', ['attribute' => 'status'])
                 </div>
 
                 <div class="box upload">
