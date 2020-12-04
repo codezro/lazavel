@@ -13,21 +13,21 @@
                 <label for="email" class="black-text left">Email</label>
                 <input name="email" class="@error('email') invalid @enderror" value="{{ old('email') }}"/>
                 @error('email')
-                    <div class="red-text align-left" style="text-align:left;">
+                    <div class="red-text text-left" style="text-align:left;">
                         <strong>{{ $message }}</strong>
                     </div>
                 @enderror
                 <label for="password" class="black-text left">Password</label>
                 <input name="password" type="password"  class="@error('password') invalid @enderror"/>
                 @error('password')
-                    <div class="red-text align-left" style="text-align:left;">
+                    <div class="red-text text-left" style="text-align:left;">
                         <strong>{{ $message }}</strong>
                     </div>
                 @enderror
                 <label for="password-confirm" class="black-text left">Confirm Password</label>
                 <input name="password_confirmation" class="width-100" type="password"  class="@error('password_confirmation') invalid @enderror"/>
                 @error('password_confirm')
-                    <div class="red-text align-left" style="text-align:left;">
+                    <div class="red-text text-left" style="text-align:left;">
                         <strong>{{ $message }}</strong>
                     </div>
                 @enderror

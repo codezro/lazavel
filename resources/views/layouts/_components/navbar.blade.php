@@ -1,3 +1,25 @@
+<nav class="top">
+    <div class="nav-wrapper">
+        @guest
+            <ul id="nav-mobile" class="right navbar">
+                <li><a href="{{ route('login') }}">Login</a></li>
+                <li>|</li>
+                <li><a  href="{{ route('register') }}">Register</a></li>
+            </ul>
+        @else
+            <ul id="nav-mobile" class="right navbar">
+                <li><a href="#" class="link">{{ Auth::user()->username }}</a></li>
+                <li>|</li>
+                <li>
+                    <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
+                        @csrf
+                        <button type="submit" class="alink link">Logout</button>
+                    </form>
+                </li>
+            </ul>
+        @endguest
+    </div>
+</nav>
 <nav class="bottom">
     <div class="row">
         <div class="col s1 offset-s1 padding-top-10"><img src="/resources/images/lazavel2.png" class="logo"/></div>

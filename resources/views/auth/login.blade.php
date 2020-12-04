@@ -10,18 +10,10 @@
                 @csrf
                 <label for="email" class="black-text left">Email</label>
                 <input name="email" class="@error('email') invalid @enderror" value="{{ old('email') }}"/>
-                @error('email')
-                    <div class="red-text align-left" style="text-align:left;">
-                        <strong>{{ $message }}</strong>
-                    </div>
-                @enderror
+                @include('partial._error-msg', ['message' => $errors->first('email') ])
                 <label for="password" class="black-text left">Password</label>
                 <input name="password" type="password" class="@error('password') invalid @enderror"/>
-                @error('password')
-                    <div class="red-text align-left" style="text-align:left;">
-                        <strong>{{ $message }}</strong>
-                    </div>
-                @enderror
+                @include('partial._error-msg', ['message' => $errors->first('password') ])
                 <button type="submit" class="waves-effect waves-light btn bg-o width-100">Login</button>
             </form>
 

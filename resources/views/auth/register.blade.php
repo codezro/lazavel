@@ -9,46 +9,22 @@
                 @csrf
                 <label for="email" class="black-text left">Email</label>
                 <input name="email" class="@error('email') invalid @enderror" value="{{ old('email') }}"/>
-                @error('email')
-                    <div class="red-text align-left" style="text-align:left;">
-                        <strong>{{ $message }}</strong>
-                    </div>
-                @enderror
+                @include('partial._error-msg', ['message' => $errors->first('email') ])
                 <label for="username" class="black-text left">Username</label>
                 <input name="username" class="@error('username') invalid @enderror" value="{{ old('username') }}"/>
-                @error('username')
-                    <div class="red-text align-left" style="text-align:left;">
-                        <strong>{{ $message }}</strong>
-                    </div>
-                @enderror
+                @include('partial._error-msg', ['message' => $errors->first('username') ])
                 <label for="first_name" class="black-text left">First Name</label>
                 <input name="first_name" class="@error('first_name') invalid @enderror" value="{{ old('first_name') }}"/>
-                @error('first_name')
-                    <div class="red-text align-left" style="text-align:left;">
-                        <strong>{{ $message }}</strong>
-                    </div>
-                @enderror
+                @include('partial._error-msg', ['message' => $errors->first('first_name') ])
                 <label for="last_name" class="black-text left">Last Name</label>
                 <input name="last_name" class="@error('last_name') invalid @enderror" value="{{ old('last_name') }}"/>
-                @error('last_name')
-                    <div class="red-text align-left" style="text-align:left;">
-                        <strong>{{ $message }}</strong>
-                    </div>
-                @enderror
+                @include('partial._error-msg', ['message' => $errors->first('last_name') ])
                 <label for="password" class="black-text left">Password</label>
                 <input name="password" type="password"  class="@error('password') invalid @enderror"/>
-                @error('password')
-                    <div class="red-text align-left" style="text-align:left;">
-                        <strong>{{ $message }}</strong>
-                    </div>
-                @enderror
+                @include('partial._error-msg', ['message' => $errors->first('password') ])
                 <label for="password-confirm" class="black-text left">Confirm Password</label>
                 <input name="password_confirmation" class="width-100" type="password"  class="@error('password_confirmation') invalid @enderror"/>
-                @error('password_confirm')
-                    <div class="red-text align-left" style="text-align:left;">
-                        <strong>{{ $message }}</strong>
-                    </div>
-                @enderror
+                @include('partial._error-msg', ['message' => $errors->first('password_confirmation') ])
                 <button type="submit" class="waves-effect waves-light btn bg-o width-100">Sign Up</button>
             </form>
         </div>
