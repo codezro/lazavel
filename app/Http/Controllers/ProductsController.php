@@ -4,6 +4,9 @@ namespace App\Http\Controllers;
 
 use App\Models\Product;
 use Illuminate\Http\Request;
+use App\Models\Category;
+use App\Http\Requests\ProductRequest;
+use Illuminate\Support\Facades\Auth;
 
 class ProductsController extends Controller
 {
@@ -18,7 +21,8 @@ class ProductsController extends Controller
      */
     public function index()
     {
-        return view('seller.products');
+        $products = Product::all();
+        return view('seller.products',['products' => $products]);
     }
 
     /**
@@ -28,7 +32,8 @@ class ProductsController extends Controller
      */
     public function create()
     {
-        return view('seller.createProduct');
+        $categories = Category::all();
+        return view('seller.createProduct',['categories'=>$categories]);
     }
 
     /**
@@ -37,9 +42,34 @@ class ProductsController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(ProductRequest $request)
     {
-        //
+        $request->validate([
+            'image' => 'required',
+            'image.*' => 'required|mimes:jpeg,png',
+        ]);
+        $product = Product::create([
+            'user_id' => Auth::id(),
+            'name' => $request->name,
+            'sku' => $request->sku,
+            'retail_price' => $request->retail_price,
+            'sale_price' => $request->sale_price,
+            'stock' => $request->stock,
+            'details' => $request->details,
+            'status' => $request->status,
+        ]);
+        $product->categoryProducts()->create([
+            'category_id' => $request->category,
+        ]);
+
+        foreach($request->file('image') as $file)
+        {
+            $path[] = $file->store('public/products');
+        }
+        $product->image()->create([
+            'url' => json_encode($path)
+        ]);
+        return redirect('/products')->withSuccess('You have listed new product.');
     }
 
     /**
@@ -50,7 +80,7 @@ class ProductsController extends Controller
      */
     public function show(Product $product)
     {
-        //
+        //reserve
     }
 
     /**
@@ -59,9 +89,12 @@ class ProductsController extends Controller
      * @param  \App\Models\Product  $product
      * @return \Illuminate\Http\Response
      */
-    public function edit(Product $product)
+    public function edit($id)
     {
-        return view('seller.editProduct');
+        $product = Product::find($id);
+        $categories = Category::all();
+        $images = json_decode($product->image[0]->url);
+        return view('seller.editProduct',['product' => $product , 'categories'=>$categories, 'images'=>$images]);
     }
 
     /**
@@ -71,9 +104,22 @@ class ProductsController extends Controller
      * @param  \App\Models\Product  $product
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Product $product)
+    public function update(ProductRequest $request, Product $product)
     {
-        //
+        $product = Product::find($product->id);
+        $product->update([
+            'name' => $request->name,
+            'sku' => $request->sku,
+            'retail_price' => $request->retail_price,
+            'sale_price' => $request->sale_price,
+            'stock' => $request->stock,
+            'details' => $request->details,
+            'status' => $request->status,
+        ]);
+        $product->categoryProducts()->update([
+            'category_id' => $request->category,
+        ]);
+        return redirect('/products')->withSuccess('Product updated successfully.');
     }
 
     /**
@@ -82,8 +128,9 @@ class ProductsController extends Controller
      * @param  \App\Models\Product  $product
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Product $product)
+    public function destroy($productId)
     {
-        //
+        Product::find($productId)->delete();
+        return redirect('/products')->withError('Product has been deleted.');
     }
 }
