@@ -11,7 +11,7 @@
                 <div class="box col">
                     <label for="name" class="black-text">Name</label>
                     <input name="name" class="@error('name') invalid @enderror" value="{{ old('name') }}"/>
-                    @inlcude('partial/_error-msg.blade.php', ['attribute' => 'name'])
+                    @include('partial._error-msg', ['message' => $errors->first('name') ])
                 </div>
 
                 <div class="box col">
@@ -22,7 +22,7 @@
                         <option value="2">2</option>
                         <option value="3">3</option>
                     </select>
-                    @inlcude('partial/_error-msg.blade.php', ['attribute' => 'category'])
+                    @include('partial._error-msg', ['message' => $errors->first('category') ])
                 </div>
 
                 <div class="space"></div>
@@ -30,19 +30,19 @@
                 <div class="box col">
                     <label for="retail_price" class="black-text">Retail Price</label>
                     <input name="retail_price" class="half @error('retail_price') invalid @enderror" value="{{ old('retail_price') }}"/>
-                    @inlcude('partial/_error-msg.blade.php', ['attribute' => 'retail_price'])
+                    @include('partial._error-msg', ['message' => $errors->first('retail_price') ])
                 </div>
 
                 <div class="box col">
                     <label for="sale_price" class="black-text">Sale Price</label>
                     <input name="sale_price" class="half @error('sale_price') invalid @enderror" value="{{ old('sale_price') }}"/>
-                    @inlcude('partial/_error-msg.blade.php', ['attribute' => 'sale_price'])
+                    @include('partial._error-msg', ['message' => $errors->first('sale_price') ])
                 </div>
 
                 <div class="box col">
                     <label for="details" class="black-text">Sale Price</label>
                     <textarea name="details" class="@error('details') invalid @enderror" value="{{ old('details') }}" id="" cols="30" rows="10"></textarea>
-                    @inlcude('partial/_error-msg.blade.php', ['attribute' => 'details'])
+                    @include('partial._error-msg', ['message' => $errors->first('details') ])
                 </div>
                 
                 <div class="space"></div>
@@ -66,7 +66,7 @@
                         </label>
                         </p>
                     </div>
-                    @inlcude('partial/_error-msg.blade.php', ['attribute' => 'status'])
+                    @include('partial._error-msg', ['message' => $errors->first('status') ])
                 </div>
 
                 <div class="box upload">
