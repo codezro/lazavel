@@ -15,6 +15,12 @@
                 </div>
 
                 <div class="box col">
+                    <label for="sku" class="black-text">SKU</label>
+                    <input name="sku" class="half @error('sku') invalid @enderror" value="{{ old('sku') }}"/>
+                    @include('partial._error-msg', ['message' => $errors->first('sku') ])
+                </div>
+
+                <div class="box col">
                     <label for="name" class="black-text">Category</label>
                     <select name="category" id="" class="custom half invalid @error('category') invalid @enderror">
                         <option value="">Categories</option>
@@ -40,11 +46,17 @@
                 </div>
 
                 <div class="box col">
-                    <label for="details" class="black-text">Sale Price</label>
-                    <textarea name="details" class="@error('details') invalid @enderror" value="{{ old('details') }}" id="" cols="30" rows="10"></textarea>
+                    <label for="stock" class="black-text">No. of Items Available</label>
+                    <input name="stock" class="half @error('stock') invalid @enderror" value="{{ old('stock') }}"/>
+                    @include('partial._error-msg', ['message' => $errors->first('stock') ])
+                </div>
+
+                <div class="box col">
+                    <label for="details" class="black-text">Product Details</label>
+                    <textarea name="details" class="@error('details') invalid @enderror" cols="30" rows="10">{{ old('details') }}</textarea>
                     @include('partial._error-msg', ['message' => $errors->first('details') ])
                 </div>
-                
+
                 <div class="space"></div>
 
                 <div class="box col">
@@ -74,13 +86,10 @@
                         <input class="upload item-12" name="image[]" type="file" multiple>
                         <i class="toHide item-12 medium material-icons">image</i>
                         <p  class="item-12" >Drag & drop your image file here</p>
-                        <div class="uploadHolder"></div>
+                        <div class="uploadHolder box"></div>
                     </div>
-                    @error('image.*')
-                        <div class="item-12 red-text text-left">
-                            <strong>{{ $message }}</strong>
-                        </div>
-                    @enderror
+                    @include('partial._error-msg', ['message' => $errors->first('image') ])
+                    @include('partial._error-msg', ['message' => $errors->first('image.*') ])
                 </div>
 
             </div>
@@ -88,8 +97,8 @@
         </div>
         <br/>
         <div class="box flex-end padding-top-20">
-            <a href="/products"><button type="submit" class="waves-effect waves-light btn grey">Cancel</button></a>
-            <div class="padding-5"></div>
+            <a href="/products" class="btn grey">Cancel</a>
+            <div class="space"></div>
             <button type="submit" class="waves-effect waves-light btn bg-o">Save</button>
         </div>
     </form>

@@ -44,10 +44,6 @@ class ProductsController extends Controller
      */
     public function store(ProductRequest $request)
     {
-        $request->validate([
-            'image' => 'required',
-            'image.*' => 'required|mimes:jpeg,png',
-        ]);
         $product = Product::create([
             'user_id' => Auth::id(),
             'name' => $request->name,
@@ -64,11 +60,9 @@ class ProductsController extends Controller
 
         foreach($request->file('image') as $file)
         {
-            $path[] = $file->store('public/products');
+            $path = $file->store('public/products');
+            $product->image()->create(['url' => $path]);
         }
-        $product->image()->create([
-            'url' => json_encode($path)
-        ]);
         return redirect('/products')->withSuccess('You have listed new product.');
     }
 
@@ -89,12 +83,11 @@ class ProductsController extends Controller
      * @param  \App\Models\Product  $product
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function edit(Product $product)
     {
-        $product = Product::find($id);
+        $product['image'] = $product->image;
         $categories = Category::all();
-        $images = json_decode($product->image[0]->url);
-        return view('seller.editProduct',['product' => $product , 'categories'=>$categories, 'images'=>$images]);
+        return view('seller.editProduct',['product' => $product , 'categories'=>$categories]);
     }
 
     /**
@@ -106,7 +99,6 @@ class ProductsController extends Controller
      */
     public function update(ProductRequest $request, Product $product)
     {
-        $product = Product::find($product->id);
         $product->update([
             'name' => $request->name,
             'sku' => $request->sku,
