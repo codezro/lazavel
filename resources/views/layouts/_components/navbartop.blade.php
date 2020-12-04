@@ -8,7 +8,7 @@
             </ul>
         @else
             <ul id="nav-mobile" class="right">
-                <li><a href="#">{{ Auth::user()->username }}</a></li>wtt
+                <li><a href="#">{{ Auth::user()->username }}</a></li>
                 <li>|</li>
                 <li><a  href="{{ route('logout') }}"  onclick="event.preventDefault();document.getElementById('logout-form').submit();">Logout</a></li>
             </ul>
