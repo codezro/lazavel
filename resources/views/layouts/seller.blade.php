@@ -32,6 +32,12 @@
         @include('layouts._components.sidenav-seller')
         
         <div class="item-11 box col">
+            @if(session('success') || session('error'))
+                <div class="flash_message @if(session('success')) success @endif @if(session('error')) error @endif">
+                    <p>{{ session('success')? session('success') : session('error') }}</p>
+                </div>
+            @endif
+            
             @include('layouts._components.navbar-seller')
             @yield('content')
         </div>
