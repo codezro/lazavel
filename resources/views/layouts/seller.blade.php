@@ -22,21 +22,19 @@
     <link href="https://fonts.googleapis.com/css?family=Nunito" rel="stylesheet">
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <!-- Styles -->
-    <link href="/resources/app.css" rel="stylesheet">
-    <link href="/resources/main.css" rel="stylesheet">
+    <link href="{{ asset('resources/app.css') }}" rel="stylesheet">
+    <link href="{{ asset('resources/dashboard.css') }}" rel="stylesheet">
     <!-- Scripts -->
-    <script src="/resources/app.js" defer></script>
+    <script src="{{ asset('resources/app.js') }}" defer></script>
 </head>
-<body>
-    <div id="app">
-
-        @include('layouts._components.navbar')
-        <main class="">
+<body >
+    <div id="app" class="box stretch">
+        @include('layouts._components.sidenav-seller')
+        
+        <div class="item-11 box col">
+            @include('layouts._components.navbar-seller')
             @yield('content')
-        </main>
-        
-        <div class="footer">Copy Right Codex Bootcamp</div>
-        
+        </div>
     </div>
 </body>
 </html>

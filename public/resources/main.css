@@ -1,0 +1,53 @@
+img.logo{
+  width:80px; 
+}
+
+nav.top{
+  height: 25px;
+  background-color: #FFF;
+}
+
+nav.top ul{
+  margin-right:10%;
+}
+
+nav.top, nav.top a{
+  color: #000000;
+  line-height: unset;
+}
+
+
+nav.bottom{
+  background-color: #FFF;
+  color: #000000;
+}
+
+.search-bar{
+  border: 1px solid #CACACA !important;
+  box-sizing: border-box !important;
+  height: 2.2rem !important;
+}
+
+.search-icon{
+  width: 3rem !important;
+  height: 2.2rem !important;
+  left: 1153px;
+}
+
+.search-icon i{
+  line-height: 2.2rem !important;
+}
+
+#app{
+  padding-bottom: 80px;
+}
+
+.footer{
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+  text-align: center;
+  padding: 20px 0;
+  background-color: #FFF;
+  z-index: 1;
+}

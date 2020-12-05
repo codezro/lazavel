@@ -1,0 +1,151 @@
+img.logo{
+  width: 80px; 
+}
+
+.side-nav{
+  background-color: #485056;
+  padding: 0 10px;
+  min-width: 15% !important;
+  min-height: 100vh;
+}
+
+.side-nav a.li{
+  padding: 10px 20px !important;
+  border-radius: 2px;
+}
+
+.side-nav a.li:hover{
+  background-color: #6d7377;
+}
+
+.navbar .item{
+  padding: 0 10px;
+}
+
+.search{
+  height: 28px !important;
+}
+
+input.search{
+  padding: 0; 
+  background-color: #FFF !important;
+}
+
+div.search{
+  padding-right: 10px;
+}
+
+.search i{
+  background-color: #485056;
+  color: #FFF;
+}
+
+button.add{
+  padding: 5px 20px;
+  color: #FFF;
+  border: unset;
+  cursor: pointer;
+}
+
+table.product-list thead{
+  background-color: #ECECEC;
+}
+
+table.product-list thead tr{
+  border: unset;
+}
+
+table.product-list tbody{
+  background-color: #FFF;
+}
+
+table.product-list td{
+  text-align: center;
+}
+
+
+button.status{
+  border: unset;
+  color: #FFF;
+  padding: 2px 10px;
+  border-radius: 2px;
+}
+
+.status.active{
+  background: #38CA04;
+}
+
+.status.in-active{
+  background: #999ca0;
+}
+
+.btn.dropdown-trigger{
+  background-color: #FFF;
+  border: unset;
+  color: #36ABED;
+  box-shadow: unset;
+  text-transform: unset;
+}
+
+.btn.dropdown-trigger i{
+  color: #1691AC;
+}
+
+.dropdown-content a{
+  border: 1px solid #ECECEC;
+  color: #1691AC;
+  padding: 5px 10px !important;
+  text-align: center;
+}
+
+.dropdown-content li {
+  min-height: 20px;
+}
+
+img.item-review{
+  object-fit: cover;
+  width: 30px;
+  height: 30px;
+}
+
+.reviews .row{
+  margin-bottom: 0;
+}
+
+.half{
+  width: 50% !important;
+}
+
+div.upload{
+  position: relative;
+  text-align: center;
+  color: grey;
+}
+
+.img-upload{
+  height: 150px;
+  border: 2px dashed grey;
+  width: 100%;
+}
+
+.img-upload p{
+  position: absolute;
+  width: inherit;
+  line-height: 180px;
+  margin: 0 !important;
+}
+
+.img-upload i{
+  line-height: 120px;
+}
+
+.img-upload input{
+  position: absolute;
+  margin: 0;
+  padding: 0 !important;
+  outline: none;
+  opacity: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 1;
+}
