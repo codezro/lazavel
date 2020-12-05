@@ -24,38 +24,30 @@
                 </tr>
             </thead>
             <tbody>
-                <tr>
-                    <td><a href="#">Product A</a></td>
-                    <td>P1098384</td>
-                    <td>1000php</td>
-                    <td>100php</td>
-                    <td>1</td>
-                    <td><button class="status active">Active</button></td>
-                    <td>
-                        <a class='dropdown-trigger btn' href='#' data-target='dropdown1'>actions<i class="large material-icons">arrow_drop_down</i></a>
-                        <!-- Dropdown Structure -->
-                        <ul id='dropdown1' class='dropdown-content'>
-                        <li><a href="#!">update</a></li>
-                        <li><a href="#!">delete</a></li>
-                        </ul>
-                    </td>
-                </tr>
-                <tr>
-                    <td><a href="#">Product A</a></td>
-                    <td>P1098384</td>
-                    <td>1000php</td>
-                    <td>100php</td>
-                    <td>1</td>
-                    <td><button class="status in-active">In-active</button></td>
-                    <td>
-                        <a class='dropdown-trigger btn' href='#' data-target='dropdown1'>actions<i class="large material-icons">arrow_drop_down</i></a>
-                        <!-- Dropdown Structure -->
-                        <ul id='dropdown1' class='dropdown-content'>
-                        <li><a href="#!">update</a></li>
-                        <li><a href="#!">delete</a></li>
-                        </ul>
-                    </td>
-                </tr>
+                @foreach($products as $product)
+                    <tr>
+                        <td><a href="#">{{Str::limit($product->name,30)}}</a></td>
+                        <td>{{$product->sku}}</td>
+                        <td>{{sprintf('%0.2f', $product->retail_price)}}</td>
+                        <td>{{sprintf('%0.2f', $product->sale_price)}}</td>
+                        <td>{{$product->stock}}</td>
+                        <td><button class="status {{$product->status? 'active' : 'in-active'}}">{{$product->status? 'Active' : 'In-active'}}</button></td>
+                        <td>
+                            <a class='dropdown-trigger btn' href='#' data-target='dropdown{{$product->id}}'>actions<i class="large material-icons">arrow_drop_down</i></a>
+                            <!-- Dropdown Structure -->
+                            <ul id='dropdown{{$product->id}}' class='dropdown-content'>
+                                <li><a href="/products/{{$product->id}}/edit">edit</a></li>
+                                <li>
+                                    <form id="delProd{{$product->id}}" action="/products/{{$product->id}}" method="POST">
+                                        @method('DELETE')
+                                        @csrf
+                                        <button class="" type="submit">delete</button>
+                                    </form>
+                                </li>
+                            </ul>
+                        </td>
+                    </tr>
+                @endforeach
             </tbody>
         </table>
     </div>
