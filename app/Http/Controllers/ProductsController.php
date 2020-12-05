@@ -86,6 +86,7 @@ class ProductsController extends Controller
     public function edit(Product $product)
     {
         $product['image'] = $product->image;
+        return $product;
         $categories = Category::all();
         return view('seller.editProduct',['product' => $product , 'categories'=>$categories]);
     }
@@ -120,9 +121,9 @@ class ProductsController extends Controller
      * @param  \App\Models\Product  $product
      * @return \Illuminate\Http\Response
      */
-    public function destroy($productId)
+    public function destroy(Product $product)
     {
-        Product::find($productId)->delete();
+        $product->delete();
         return redirect('/products')->withError('Product has been deleted.');
     }
 }
