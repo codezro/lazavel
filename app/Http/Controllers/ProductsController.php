@@ -21,8 +21,16 @@ class ProductsController extends Controller
      */
     public function index()
     {
-        $products = Product::all();
+        $products = Product::paginate(3);
         return view('seller.products',['products' => $products]);
+    }
+
+    public function search(Request $request)
+    {
+        $products = Product::where('name','LIKE','%'.$request->search.'%')
+                            ->orWhere('sku','LIKE','%'.$request->search.'%')
+                            ->paginate(3);
+        return view('seller.products',['products' => $products, 'request' => $request]);
     }
 
     /**
@@ -86,7 +94,6 @@ class ProductsController extends Controller
     public function edit(Product $product)
     {
         $product['image'] = $product->image;
-        return $product;
         $categories = Category::all();
         return view('seller.editProduct',['product' => $product , 'categories'=>$categories]);
     }
@@ -115,13 +122,20 @@ class ProductsController extends Controller
         return redirect('/products')->withSuccess('Product updated successfully.');
     }
 
+    public function status($id){
+        $product = Product::find($id);
+        $product['status'] = !$product->status;
+        $product->save();
+        return back()->withSuccess('Status updated successfully.');
+    }
+
     /**
      * Remove the specified resource from storage.
      *
      * @param  \App\Models\Product  $product
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Product $product)
+    public function destroy($productId)
     {
         $product->delete();
         return redirect('/products')->withError('Product has been deleted.');
