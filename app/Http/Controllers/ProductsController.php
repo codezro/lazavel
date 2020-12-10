@@ -10,7 +10,8 @@ use Illuminate\Support\Facades\Auth;
 
 class ProductsController extends Controller
 {
-    public function __construct(){
+    public function __construct()
+    {
         $this->middleware(['auth','verify.seller']);
     }
 
@@ -21,15 +22,13 @@ class ProductsController extends Controller
      */
     public function index()
     {
-        $products = Product::paginate(3);
+        $products = Product::paginate(10);
         return view('seller.products',['products' => $products]);
     }
 
     public function search(Request $request)
     {
-        $products = Product::where('name','LIKE','%'.$request->search.'%')
-                            ->orWhere('sku','LIKE','%'.$request->search.'%')
-                            ->paginate(3);
+        $products = Product::searchName($request->search)->searchSku($request->search)->paginate(10);
         return view('seller.products',['products' => $products, 'request' => $request]);
     }
 
@@ -122,7 +121,8 @@ class ProductsController extends Controller
         return redirect('/products')->withSuccess('Product updated successfully.');
     }
 
-    public function status($id){
+    public function status($id)
+    {
         $product = Product::find($id);
         $product['status'] = !$product->status;
         $product->save();
@@ -135,7 +135,7 @@ class ProductsController extends Controller
      * @param  \App\Models\Product  $product
      * @return \Illuminate\Http\Response
      */
-    public function destroy($productId)
+    public function destroy(Product $product)
     {
         $product->delete();
         return redirect('/products')->withError('Product has been deleted.');

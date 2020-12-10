@@ -15,15 +15,28 @@ class Product extends Model
     use SoftDeletes;
     protected $guarded = [];
 
-    public function user(){
+    public function scopeSearchName($query,$search)
+    {
+        return $query->orWhere('name','LIKE','%'.$search.'%');
+    }
+
+    public function scopeSearchSku($query,$search)
+    {
+        return $query->orWhere('sku','LIKE','%'.$search.'%');
+    }
+
+    public function user()
+    {
         return $this->belongsTo(User::class);
     }
 
-    public function categoryProducts(){
+    public function categoryProducts()
+    {
         return $this->hasMany(CategoryProducts::class);
     }
     
-    public function image(){
+    public function image()
+    {
         return $this->hasMany(Image::class);
     }
 }
