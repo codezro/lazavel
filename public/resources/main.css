@@ -38,16 +38,82 @@ nav.bottom{
   line-height: 2.2rem !important;
 }
 
-#app{
-  padding-bottom: 80px;
-}
-
 .footer{
-  position: fixed;
-  bottom: 0;
   width: 100%;
   text-align: center;
   padding: 20px 0;
   background-color: #FFF;
-  z-index: 1;
+  margin-top: 80px;
+}
+
+.carousel.carousel-slider{
+  height: 250px !important;
+}
+
+.main{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.sub{
+  min-width: 1000px;
+  max-width: 1000px;
+  margin: 0 auto;
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.categories{
+  justify-content: space-around;
+}
+
+.categories .btn{
+  display: table !important;
+  flex-basis: 150px;
+  border: 1px solid #A9A9A9;
+  background-color: #FFF;
+  color: #485056;
+  margin-top: 20px;
+  font-size: .8rem;
+  line-height: unset;
+}
+
+.space{
+  padding: 0 !important;
+  margin-top: 30px;
+}
+
+.products{
+  justify-content: space-between;
+}
+
+.product{
+  border: 1px solid #A9A9A9;
+  flex-wrap: nowrap;
+  gap: 12px;
+  flex-basis: 155px;
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+
+.product .card-content{
+  padding: 10px;
+  font-size: .8rem;
+}
+
+.product .card-content a{
+  color: #485056 !important;
+}
+
+.product .card-action{
+  padding: 5px 0px 0px 10px;
+}
+
+.product .card-action a{
+  color: #E24A1A !important;
+}
+
+.load-more{
+  width: 200px;
 }

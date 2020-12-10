@@ -16,12 +16,11 @@
                 @include('partial._error-msg', ['message' => $errors->first('password') ])
                 <button type="submit" class="waves-effect waves-light btn bg-o width-100">Login</button>
             </form>
-
+            <div class="space"></div>
             @if (Route::has('password.request'))
                 <a class="grey-text" href="{{ route('password.request') }}">{{ __('Forgot Your Password?') }}</a>
             @endif
         </div>
     </div>
 </div>
-
 @endsection
