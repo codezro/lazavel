@@ -3,10 +3,13 @@
 @section('content')
 <div class="padding-50">
     <div class="box flex-end first-section">
-        <div class="box search">
-            <input class="search"/>
-            <i class="material-icons">search</i>
-        </div>
+        <form action="/products/search" method="GET">
+            <div class="box search">
+                    @csrf
+                    <input name="search" class="search" value="{{$request->search ?? ''}}"/>
+                    <i class="material-icons">search</i>
+            </div>
+        </form>
         <a href="/products/create"><button class="bg-o add">Add Item</button></a>
     </div>
     <div class="space"></div>
@@ -31,7 +34,13 @@
                         <td>{{sprintf('%0.2f', $product->retail_price)}}</td>
                         <td>{{sprintf('%0.2f', $product->sale_price)}}</td>
                         <td>{{$product->stock}}</td>
-                        <td><button class="status {{$product->status? 'active' : 'in-active'}}">{{$product->status? 'Active' : 'In-active'}}</button></td>
+                        <td>
+                            <form action="/products/{{$product->id}}/status" method="POST">
+                                @method('PATCH')
+                                @csrf
+                                <button type="submit" class="z-depth-1 status {{$product->status? 'active' : 'in-active'}}">{{$product->status? 'Active' : 'In-active'}}</button>
+                            </form>
+                        </td>
                         <td>
                             <a class='dropdown-trigger btn' href='#' data-target='dropdown{{$product->id}}'>actions<i class="large material-icons">arrow_drop_down</i></a>
                             <!-- Dropdown Structure -->
@@ -50,6 +59,7 @@
                 @endforeach
             </tbody>
         </table>
+        {{ $products->links() }}
     </div>
 </div>
 @endsection

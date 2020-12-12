@@ -31,9 +31,7 @@
     <div id="app">
 
         @include('layouts._components.navbar')
-        <main class="">
-            @yield('content')
-        </main>
+        @yield('content')
         
         <div class="footer">Copy Right Codex Bootcamp</div>
         

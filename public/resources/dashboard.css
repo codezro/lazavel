@@ -202,3 +202,27 @@ img.uploadHolder{
   border: 2px solid #ECECEC;
   display: flex;
 }
+
+
+
+nav[role="navigation"]{
+  text-align: center;
+  background-color: transparent;
+  border: unset;
+  color: grey;
+  outline: none !important;
+  -webkit-box-shadow: none !important;
+  box-shadow: none !important;
+}
+
+nav[role="navigation"] a{
+  color: #000000;
+}
+
+nav[role="navigation"] .hidden p{
+  margin: 0 unset !important;
+}
+
+nav[role="navigation"] .hidden div:nth-child(2){
+  display: none;
+} 
