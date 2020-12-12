@@ -6,6 +6,15 @@ document.addEventListener('DOMContentLoaded', function() {
 $('.dropdown-trigger').dropdown();
 //END material-ui dropdown
 
+//
+$(document).ready(function(){
+    $('.carousel.carousel-slider').carousel({
+        fullWidth: true,
+        indicators: true,
+    });
+});
+//
+
 //START image upload
 function readURL(input) {
     $('.uploadHolder').html('');
