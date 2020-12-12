@@ -57,13 +57,13 @@ body{
 input{
   background: #F4F4F4 !important;
   border: 0 !important;
-  padding: 0 0 0 .5rem !important;
+  padding: 0 0 0 0.5rem !important;
 }
 
 textarea{
   background: #F4F4F4 !important;
   border: 0 !important;
-  padding: 0 0 0 .5rem !important;
+  padding: 0 0 0 0.5rem !important;
   height: auto;
 }
 
@@ -225,7 +225,7 @@ select{
 }
 
 .star i{
-  font-size: .7rem;
+  font-size: 0.7rem;
   color: #FFD911;
 }
 
