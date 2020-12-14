@@ -25,7 +25,7 @@ class HomeController extends Controller
      */
     public function index()
     {
-        $products = Product::where('status',1)->limit(12)->with('image')->get();
+        $products = Product::where('status',1)->limit(10)->with('image')->get();
         $categories = Category::all();
         return view('home',['products' => $products, 'categories' => $categories]);
     }

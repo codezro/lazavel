@@ -22,6 +22,7 @@ class UserSeeder extends Seeder
             'last_name' => 'seller',
             'isSeller' => 1,
             'password' => Hash::make('password'),
+            'created_at' => date("Y-m-d H:i:s"),
         ]);
     }
 }

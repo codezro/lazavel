@@ -17,7 +17,7 @@
     <div class="box sub space"><b>Just for you</b></div>
     <div class="box sub products">
         @foreach ($products as $product)
-            <div class="product card">
+            <div class="product card list-6">
                 <div class="card-image">
                     <a href="/details/{{$product->id}}"><img src="{{Storage::url($product->image[count($product->image)-1]->url)}}"></a>
                 </div>
