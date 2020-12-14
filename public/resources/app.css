@@ -42,6 +42,10 @@ body{
   padding-top: 15px !important;
 }
 
+.padding-top-30{
+  padding-top: 30px !important;
+}
+
 .padding-top-80{
   padding-top: 80px !important;
 }
@@ -112,6 +116,18 @@ button.bg-o:hover{
 
 .box{
   display: flex;
+}
+
+.box-inline{
+  display: inline-flex;
+}
+
+.no-wrap{
+  flex-wrap: wrap;
+}
+
+.wrap{
+  flex-wrap: wrap;
 }
 
 .box.row{
@@ -196,6 +212,30 @@ button.bg-o:hover{
 
 .grow-5{
   flex-grow: 5;
+}
+
+.flex-1{
+  flex: 1;
+}
+
+.flex-2{
+  flex: 2;
+}
+
+.flex-3{
+  flex: 3;
+}
+
+.flex-4{
+  flex: 4;
+}
+
+.flex-5{
+  flex: 5;
+}
+
+.space-between{
+  justify-content: space-between;
 }
 
 div.space{
