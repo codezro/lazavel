@@ -28,5 +28,5 @@ Route::get('/seller/reviews', [App\Http\Controllers\SellerController::class, 're
 Route::resource('products', App\Http\Controllers\ProductsController::class);
 
 Route::get('/list', [App\Http\Controllers\ShopController::class, 'list']);
-Route::get('/details/{id}', [App\Http\Controllers\ShopController::class, 'detail']);
-Route::get('/details/{id}/reviews', [App\Http\Controllers\ShopController::class, 'review']);
+Route::get('/view/{id}', [App\Http\Controllers\ShopController::class, 'view']);
+Route::get('/review/{id}', [App\Http\Controllers\ShopController::class, 'review']);
