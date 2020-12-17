@@ -26,7 +26,7 @@ class ShopController extends Controller
     {
         $product = Product::with('image')->find($id);
         $products = Product::getItemsBy(10)->with('image')->get();
-        return view('shop.view',['product' => $product,'products' => $products]);
+        return view('shop.view', ['product' => $product, 'products' => $products]);
     }
 
     public function review(Product $product)
