@@ -54,6 +54,10 @@ body{
   padding-left: 5px;
 }
 
+.padding-left-10{
+  padding-left: 10px;
+}
+
 .margin-20{
   margin: 20px !important;
 }
@@ -192,26 +196,6 @@ button.bg-o:hover{
 
 .flex-end{
   justify-content: flex-end;
-}
-
-.grow-1{
-  flex-grow: 1;
-}
-
-.grow-2{
-  flex-grow: 2;
-}
-
-.grow-3{
-  flex-grow: 3;
-}
-
-.grow-4{
-  flex-grow: 4;
-}
-
-.grow-5{
-  flex-grow: 5;
 }
 
 .flex-1{

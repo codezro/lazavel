@@ -35,26 +35,8 @@
                 </div>
                 <div class="box wrap">
                     @foreach ($products as $product)
-                        <div class="product card list-4">
-                            <div class="card-image">
-                                <a href="/view/{{$product->id}}"><img src="{{Storage::url($product->image[count($product->image)-1]->url)}}"></a>
-                            </div>
-                            <div class="card-content">
-                                <a href="/view/{{$product->id}}">{{Str::limit($product->name,30)}}</a>
-                            </div>
-                            <div class="card-action">
-                                <a href="/view/{{$product->id}}">&#8369; {{sprintf('%0.2f', $product->sale_price)}}</a>
-                            </div>
-                            <span class="star padding-left-5">
-                                <i class="material-icons tiny">star</i>
-                                <i class="material-icons tiny">star</i>
-                                <i class="material-icons tiny">star</i>
-                                <i class="material-icons tiny">star</i>
-                                <i class="material-icons tiny">star</i>
-                            </span>
-                        </div>
+                        @include('partial._product-card',['product' => $product,'numberOfCards' => '4'])
                     @endforeach
-
                 </div>
             </div>
         </div>

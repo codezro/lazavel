@@ -24,6 +24,11 @@ class Product extends Model
     {
         return $query->orWhere('sku','LIKE','%'.$search.'%');
     }
+    
+    public function scopeGetItemsBy($query, $noOfItems, $status = 1)
+    {
+        return $query->where('status', $status)->limit($noOfItems);
+    }
 
     public function user()
     {
