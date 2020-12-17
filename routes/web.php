@@ -30,3 +30,6 @@ Route::resource('products', App\Http\Controllers\ProductsController::class);
 Route::get('/list', [App\Http\Controllers\ShopController::class, 'list']);
 Route::get('/view/{id}', [App\Http\Controllers\ShopController::class, 'view']);
 Route::get('/review/{id}', [App\Http\Controllers\ShopController::class, 'review']);
+
+Route::get('/address', [App\Http\Controllers\AddressesController::class, 'index']);
+Route::post('/address', [App\Http\Controllers\AddressesController::class, 'store']);

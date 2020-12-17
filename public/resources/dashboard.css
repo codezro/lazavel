@@ -92,32 +92,6 @@ button.status{
   color: #1691AC;
 }
 
-.dropdown-content a{
-  border: 1px solid #ECECEC;
-  color: #1691AC;
-  padding: 5px 10px !important;
-  text-align: center;
-}
-
-.dropdown-content button{
-  border: 1px solid #ECECEC;
-  color: #1691AC;
-  background-color: #FFF;
-  padding: 5px 10px !important;
-  text-align: center;
-  width: 100%;
-}
-
-.dropdown-content button:hover{
-  border: 1px solid #ECECEC;
-  cursor: pointer;
-  background-color: #ECECEC;
-}
-
-.dropdown-content li {
-  min-height: 20px;
-}
-
 img.item-review{
   object-fit: cover;
   width: 30px;

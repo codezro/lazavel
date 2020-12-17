@@ -41,6 +41,6 @@ class LoginController extends Controller
 
     public function redirectTo()
     {
-        return Auth::user()->isSeller? '/products' : '/home';
+        return Auth::user()->isSeller? '/products' : '/';
     }
 }
