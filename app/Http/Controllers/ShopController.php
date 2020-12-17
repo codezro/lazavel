@@ -8,17 +8,25 @@ use App\Models\Product;
 
 class ShopController extends Controller
 {
+    public function index()
+    {
+        $products = Product::where('status',1)->limit(12)->with('image')->get();
+        $categories = Category::all();
+        return view('home',['products' => $products, 'categories' => $categories]);
+    }
     public function list(){
         $products = Product::where('status',1)->with('image')->get();
         $categories = Category::all();
         return view('shop.list',['products' => $products, 'categories' => $categories]);
     }
 
-    public function detail($id){
-        return view('shop.detail');
+    public function view($id){
+        $product = Product::with('image')->find($id);
+        $products = Product::where('status',1)->limit(10)->with('image')->get();
+        return view('shop.view',['product' => $product,'products' => $products]);
     }
 
-    public function review($id){
+    public function review(Product $product){
         return view('shop.review');
     }
 }

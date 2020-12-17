@@ -17,24 +17,7 @@
     <div class="box sub space"><b>Just for you</b></div>
     <div class="box sub products">
         @foreach ($products as $product)
-            <div class="product card list-6">
-                <div class="card-image">
-                    <a href="/details/{{$product->id}}"><img src="{{Storage::url($product->image[count($product->image)-1]->url)}}"></a>
-                </div>
-                <div class="card-content">
-                    <a href="/details/{{$product->id}}">{{Str::limit($product->name,30)}}</a>
-                </div>
-                <div class="card-action">
-                    <a href="/details/{{$product->id}}">&#8369; {{sprintf('%0.2f', $product->sale_price)}}</a>
-                </div>
-                <span class="star padding-left-5">
-                    <i class="material-icons tiny">star</i>
-                    <i class="material-icons tiny">star</i>
-                    <i class="material-icons tiny">star</i>
-                    <i class="material-icons tiny">star</i>
-                    <i class="material-icons tiny">star</i>
-                </span>
-            </div>
+            @include('partial._product-card',['product' => $product,'numberOfCards' => '6'])
         @endforeach
     </div>
 </div>
