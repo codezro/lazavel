@@ -21,7 +21,6 @@ Route::get('/seller/login', function () {
 Auth::routes();
 
 Route::get('/', [App\Http\Controllers\ShopController::class, 'index'])->name('home');
-Route::get('/home', [App\Http\Controllers\ShopController::class, 'index'])->name('home');
 
 Route::get('products/search', [App\Http\Controllers\ProductsController::class,'search']);
 Route::patch('products/{id}/status', [App\Http\Controllers\ProductsController::class,'status']);
