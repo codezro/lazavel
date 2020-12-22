@@ -25,6 +25,7 @@
         @else
             <form action="/address" method="POST">
                 @csrf
+                
                 <label for="name" class="black-text left">Name</label>
                 <input name="name" class="@error('name') invalid @enderror" value="{{ old('name') }}"/>
                 @include('partial._error-msg', ['message' => $errors->first('name') ])
@@ -51,7 +52,7 @@
                 <label for="postal_code" class="black-text left">Postal code</label>
                 <input name="postal_code" class="@error('postal_code') invalid @enderror" value="{{ old('postal_code') }}"/>
                 @include('partial._error-msg', ['message' => $errors->first('postal_code') ])
-                
+
                 <button type="submit" class="waves-effect waves-light btn bg-o width-100">Submit</button>
             </form>
         @endif
