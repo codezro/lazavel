@@ -8,7 +8,7 @@
             </ul>
         @else
             <ul id="nav-mobile" class="right navbar">
-                <li><a href="#" class="link">{{ Auth::user()->username }}</a></li>
+                <li><a href="#" class="dropdown-trigger link" data-target="user-settings">{{ Auth::user()->username }}</a></li>
                 <li>|</li>
                 <li>
                     <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
@@ -16,6 +16,10 @@
                         <button type="submit" class="alink link">Logout</button>
                     </form>
                 </li>
+            </ul>
+            
+            <ul id='user-settings' class='dropdown-content'>
+                <li><a href="/address">Address</a></li>
             </ul>
         @endguest
     </div>
