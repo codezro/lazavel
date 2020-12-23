@@ -320,3 +320,11 @@ button.alink{
 .dropdown-content li {
   min-height: 20px;
 }
+
+.message.success {
+  color: green;
+}
+
+.message.error {
+  color: red;
+}

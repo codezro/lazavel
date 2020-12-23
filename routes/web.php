@@ -33,3 +33,6 @@ Route::get('/review/{id}', [App\Http\Controllers\ShopController::class, 'review'
 
 Route::get('/address', [App\Http\Controllers\AddressesController::class, 'index']);
 Route::post('/address', [App\Http\Controllers\AddressesController::class, 'store']);
+
+Route::post('/checkout/{id}', [App\Http\Controllers\OrdersController::class, 'store']);
+Route::get('/purchases', [App\Http\Controllers\OrdersController::class, 'index']);

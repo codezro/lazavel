@@ -303,3 +303,7 @@ input.input-quantity {
   min-width: 60px;
   width: 20%;
 }
+
+.order img{
+  width: 100px;
+}

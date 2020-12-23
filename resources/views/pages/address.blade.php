@@ -3,6 +3,11 @@
 @section('content')
 <div class="main-body">
     <div class="box col width-50 white padding-20">
+        @if(session('success') || session('error'))
+            <div class="center message @if(session('success')) success @endif @if(session('error')) error @endif">
+                <p>{{ session('success')? session('success') : session('error') }}</p>
+            </div>
+        @endif
         @if(!empty($address))
             <div class="box-inline padding-5">
                 <div class="width-25 text-right padding-right-10 grey-text text-darken-2">Name</div>

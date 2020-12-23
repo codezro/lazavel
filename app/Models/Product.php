@@ -8,6 +8,7 @@ use Illuminate\Database\Eloquent\SoftDeletes;
 use App\Models\User;
 use App\Models\CategoryProducts;
 use App\Models\Image;
+use App\Models\Order;
 
 class Product extends Model
 {
@@ -43,5 +44,9 @@ class Product extends Model
     public function image()
     {
         return $this->hasMany(Image::class);
+    }
+
+    public function order(){
+        return $this->hasMany(Order::class);
     }
 }

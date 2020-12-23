@@ -20,6 +20,7 @@
             
             <ul id='user-settings' class='dropdown-content'>
                 <li><a href="/address">Address</a></li>
+                <li><a href="/purchases">Purchases</a></li>
             </ul>
         @endguest
     </div>

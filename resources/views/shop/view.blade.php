@@ -31,7 +31,9 @@
                         <span class="category-round blue-text">{{$value->category->name}}</span>
                     @endforeach
                 </div>
-                <form action="#" method="POST">
+                <form action="/checkout/{{$product->id}}" method="POST">
+                    @csrf
+                    <input type="hidden" name="id" value="{{$product->id}}">
                     <div class="view-price-buy">
                         <div class="">
                             <span class="view-price">&#8369; {{number_format($product->sale_price, 2, '.', ',')}}</span>
@@ -41,10 +43,19 @@
                                 <button class="view-buy center">Buy Now</button>
                         </div>
                     </div>
-                    <div class="input-quantity">
-                        <button class="input-quantity add"><i class="material-icons">keyboard_arrow_left</i></button>
-                        <input class="input-quantity" type="text" value="1">
-                        <button class="input-quantity minus"><i class="material-icons">keyboard_arrow_right</i></button>
+                    @if ($product->stock)
+                        <div class="input-quantity">
+                            <button type="button" class="input-quantity minus"><i class="material-icons">keyboard_arrow_left</i></button>
+                            <input name="quantity" class="input-quantity" type="text" value="{{old('quantity') ?? 1}}">
+                            <button type="button" class="input-quantity add"><i class="material-icons">keyboard_arrow_right</i></button>
+                        </div>
+                    @else
+                        <div class="red-text">
+                        Out of stock.
+                        </div>
+                    @endif
+                    <div>
+                        @include('partial._error-msg', ['message' => $errors->first('quantity') ])
                     </div>
                 </form>
                 <p>Delivery Options</p>
