@@ -24,17 +24,21 @@ class OrdersController extends Controller
 
     public function store($productId, OrderRequest $request)
     {
-        if(!$this->checkAddress()) return redirect('/address')->withError('Please add address first.');
-        Order::create([
-            'product_id' => $productId,
-            'user_id' => Auth::id(),
-            'address_id' => Auth::user()->address->pluck('id')->first(),
-            'quantity' => $request->quantity,
-            'total_price' => calculateTotalPrice($productId,$request->quantity),
-            'status' => 'Processing order',
-        ]);
-        Product::find($productId)->decrement('stock', $request->quantity);
-        return redirect('/purchases');
+        if(!$this->checkAddress())
+        {
+            return redirect('/address')->withError('Please add address first.');
+        }else{
+            Order::create([
+                'product_id' => $productId,
+                'user_id' => Auth::id(),
+                'address_id' => Auth::user()->address->pluck('id')->first(),
+                'quantity' => $request->quantity,
+                'total_price' => calculateTotalPrice($productId,$request->quantity),
+                'status' => 'Processing order',
+            ]);
+            Product::find($productId)->decrement('stock', $request->quantity);
+            return redirect('/purchases');
+        }
     }
 
     public function checkAddress()
