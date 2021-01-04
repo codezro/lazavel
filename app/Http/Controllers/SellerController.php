@@ -6,11 +6,13 @@ use Illuminate\Http\Request;
 
 class SellerController extends Controller
 {
-    public function __construct(){
+    public function __construct()
+    {
         $this->middleware(['auth','verify.seller']);
     }
 
-    public function reviews(){
+    public function reviews()
+    {
         return view('seller.reviews');
     }
 }

@@ -9,16 +9,19 @@ use App\Http\Requests\AddressRequest;
 
 class AddressesController extends Controller
 {
-    public function __consctruct(){
+    public function __consctruct()
+    {
         $this->middleware('auth');
     }
 
-    public function index(){
+    public function index()
+    {
         $address = Address::where('user_id','=',Auth::id())->first();
         return view('pages.address',['address'=> $address]);
     }
 
-    public function store(AddressRequest $request){
+    public function store(AddressRequest $request)
+    {
         $address = Address::create([
             'user_id' => Auth::id(),
             'name' => $request->name,
