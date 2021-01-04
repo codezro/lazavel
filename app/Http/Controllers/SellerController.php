@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Order;
+use App\Models\Review;
 
 class SellerController extends Controller
 {
@@ -28,6 +29,13 @@ class SellerController extends Controller
 
     public function reviews()
     {
-        return view('seller.reviews');
+        $reviews = Review::latest('updated_at')->orderBy('created_at', 'ASC')->paginate(10);
+        return view('seller.reviews',['reviews' => $reviews]);
+    }
+
+    public function reviewDestroy($reviewId)
+    {
+        Review::find($reviewId)->delete();
+        return back();
     }
 }
