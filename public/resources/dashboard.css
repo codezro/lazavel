@@ -200,3 +200,7 @@ nav[role="navigation"] .hidden p{
 nav[role="navigation"] .hidden div:nth-child(2){
   display: none;
 } 
+
+.order img{
+  width: 50px;
+}

@@ -9,6 +9,7 @@ use App\Models\User;
 use App\Models\CategoryProducts;
 use App\Models\Image;
 use App\Models\Order;
+use App\Models\Review;
 
 class Product extends Model
 {
@@ -46,7 +47,13 @@ class Product extends Model
         return $this->hasMany(Image::class);
     }
 
-    public function order(){
+    public function order()
+    {
         return $this->hasMany(Order::class);
+    }
+
+    public function review()
+    {
+        return $this->hasMany(Review::class);
     }
 }

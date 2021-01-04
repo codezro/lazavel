@@ -29,10 +29,13 @@ Route::resource('products', App\Http\Controllers\ProductsController::class);
 
 Route::get('/list', [App\Http\Controllers\ShopController::class, 'list']);
 Route::get('/view/{id}', [App\Http\Controllers\ShopController::class, 'view']);
-Route::get('/review/{id}', [App\Http\Controllers\ShopController::class, 'review']);
+Route::get('/reviews/{id}', [App\Http\Controllers\ShopController::class, 'reviews']);
 
 Route::get('/address', [App\Http\Controllers\AddressesController::class, 'index']);
 Route::post('/address', [App\Http\Controllers\AddressesController::class, 'store']);
 
 Route::post('/checkout/{id}', [App\Http\Controllers\OrdersController::class, 'store']);
 Route::get('/purchases', [App\Http\Controllers\OrdersController::class, 'index']);
+
+Route::get('/purchases/{id}/review', [App\Http\Controllers\ReviewsController::class, 'create']);
+Route::post('/review/{id}', [App\Http\Controllers\ReviewsController::class, 'store']);

@@ -9,6 +9,7 @@ use Illuminate\Notifications\Notifiable;
 use App\Models\Product;
 use App\Models\Address;
 use App\Models\Order;
+use App\Models\Review;
 
 class User extends Authenticatable
 {
@@ -46,15 +47,23 @@ class User extends Authenticatable
         'email_verified_at' => 'datetime',
     ];
 
-    public function product(){
+    public function product()
+    {
         return $this->hasMany(Product::class);
     }
 
-    public function address(){
+    public function address()
+    {
         return $this->hasMany(Address::class);
     }
 
-    public function order(){
+    public function order()
+    {
         return $this->hasMany(Order::class);
+    }
+
+    public function review()
+    {
+        return $this->hasMany(Review::class);
     }
 }

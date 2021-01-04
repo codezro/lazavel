@@ -17,7 +17,8 @@ class OrdersController extends Controller
         $this->middleware('auth');
     }
 
-    public function index(){
+    public function index()
+    {
         $orders = Order::where('user_id',Auth::id())->get();
         return view('pages.purchases',['orders'=>$orders]);
     }
