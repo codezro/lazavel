@@ -140,7 +140,6 @@ div.upload{
   z-index: 1;
 }
 
-
 .flash_message {
 background-color: #ECECEC;
 text-align: center;
@@ -177,8 +176,6 @@ img.uploadHolder{
   display: flex;
 }
 
-
-
 nav[role="navigation"]{
   text-align: center;
   background-color: transparent;
@@ -200,3 +197,7 @@ nav[role="navigation"] .hidden p{
 nav[role="navigation"] .hidden div:nth-child(2){
   display: none;
 } 
+
+.order img{
+  width: 50px;
+}

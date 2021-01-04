@@ -12,7 +12,7 @@
                     <div class="flex-4">
                         <div class="padding-left-10">{{$order->product->name}}</div>
                         <div class="padding-left-10">{{$order->quantity}} pc(s)</div>
-                        <div class="padding-left-10">Order Total: {{$order->total_price}}</div>
+                        <div class="padding-left-10">Order Total: {{number_format($order->total_price, 2, '.', ',')}}</div>
                         <div class="padding-left-10"><b>Status:</b> {{$order->status}}</div>
                     </div>
                 </div>
