@@ -5,13 +5,14 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use App\Models\Product;
-use App\Models\Address;
 use App\Models\User;
-use App\Models\Review;
+use App\Models\Order;
+use Illuminate\Database\Eloquent\SoftDeletes;
 
-class Order extends Model
+class Review extends Model
 {
     use HasFactory;
+    use SoftDeletes;
     protected $guarded = [];
 
     public function product()
@@ -19,18 +20,13 @@ class Order extends Model
         return $this->belongsTo(Product::class);
     }
 
-    public function address()
-    {
-        return $this->belongsTo(Address::class);
-    }
-
     public function user()
     {
         return $this->belongsTo(User::class);
     }
 
-    public function review()
+    public function order()
     {
-        return $this->hasMany(Review::class);
+        return $this->belongsTo(Order::class);
     }
 }
