@@ -24,10 +24,10 @@ class OrdersController extends Controller
 
     public function store($productId, OrderRequest $request)
     {
-        if(!$this->checkAddress())
+        if (!$this->checkAddress())
         {
             return redirect('/address')->withError('Please add address first.');
-        }else{
+        } else {
             Order::create([
                 'product_id' => $productId,
                 'user_id' => Auth::id(),
