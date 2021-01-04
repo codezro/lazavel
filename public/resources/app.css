@@ -154,6 +154,10 @@ button.bg-o:hover{
   display: inline-flex;
 }
 
+.row-reverse{
+  flex-direction: row-reverse;
+}
+
 .no-wrap{
   flex-wrap: wrap;
 }

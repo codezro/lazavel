@@ -28,6 +28,7 @@ Route::get('/seller/reviews', [App\Http\Controllers\SellerController::class, 're
 Route::get('/seller/orders', [App\Http\Controllers\SellerController::class, 'orders']);
 Route::resource('products', App\Http\Controllers\ProductsController::class);
 Route::patch('/seller/order/{id}', [App\Http\Controllers\SellerController::class, 'order']);
+Route::delete('/seller/review/{id}', [App\Http\Controllers\SellerController::class, 'reviewDestroy']);
 
 Route::get('/list', [App\Http\Controllers\ShopController::class, 'list']);
 Route::get('/view/{id}', [App\Http\Controllers\ShopController::class, 'view']);
