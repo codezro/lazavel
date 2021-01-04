@@ -12,14 +12,16 @@ class SellerController extends Controller
         $this->middleware(['auth','verify.seller']);
     }
 
-    public function order($orderId, Request $request){
+    public function order($orderId, Request $request)
+    {
         Order::where('id',$orderId)->update([
             'status' => $request->status
         ]);
         return back();
     }
 
-    public function orders(){
+    public function orders()
+    {
         $orders = Order::latest('updated_at')->orderBy('created_at', 'ASC')->paginate(5);
         return view('seller.orders',['orders'=>$orders]);
     }
