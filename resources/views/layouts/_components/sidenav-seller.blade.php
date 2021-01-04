@@ -3,5 +3,6 @@
     <div class="box col ul">
         <a href="/products" class="white-text li"><div class="item-12">Products</div></a>
         <a href="/seller/reviews" class="white-text li"><div class="item-12">Reviews</div></a>
+        <a href="/seller/orders" class="white-text li"><div class="item-12">Orders</div></a>
     </div>
 </div>
