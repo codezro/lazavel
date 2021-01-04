@@ -10,6 +10,7 @@ use App\Models\Product;
 use App\Models\Address;
 use App\Models\Order;
 use App\Models\Review;
+use App\Models\Favorite;
 
 class User extends Authenticatable
 {
@@ -65,5 +66,10 @@ class User extends Authenticatable
     public function review()
     {
         return $this->hasMany(Review::class);
+    }
+
+    public function favorite()
+    {
+        return $this->hasMany(Favorite::Class);
     }
 }

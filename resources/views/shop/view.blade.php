@@ -13,7 +13,22 @@
                 @endforeach
             </div>
             <div class="flex-1">
-                <i class="material-icons red-text right">favorite_border</i>
+                @if($product->favorite->count())
+                    <form action="/favorite/{{$product->id}}" method="POST">
+                        @csrf
+                        @method('DELETE')
+                        <a href="#" onclick="$(this).closest('form').submit()">
+                            <i class="material-icons red-text right">favorite</i>
+                        </a>
+                    </form>
+                @else
+                    <form action="/favorite/{{$product->id}}" method="POST">
+                        @csrf
+                        <a href="#" onclick="$(this).closest('form').submit()">
+                            <i class="material-icons red-text right">favorite_border</i>
+                        </a>
+                    </form>
+                @endif
                 <div><b>{{$product->name}}</b></div>
                 <div>
                     <span class="star padding-left-5">

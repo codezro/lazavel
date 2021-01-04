@@ -41,3 +41,6 @@ Route::get('/purchases', [App\Http\Controllers\OrdersController::class, 'index']
 
 Route::get('/purchases/{id}/review', [App\Http\Controllers\ReviewsController::class, 'create']);
 Route::post('/review/{id}', [App\Http\Controllers\ReviewsController::class, 'store']);
+
+Route::post('/favorite/{id}', [App\Http\Controllers\FavoritesController::class, 'store']);
+Route::delete('/favorite/{id}', [App\Http\Controllers\FavoritesController::class, 'destroy']);
