@@ -4,12 +4,12 @@
 <div class="padding-50">
     <div class="white padding-30">
         @foreach($reviews as $review)
-            <div class="reviews">
+            <div class="reviews parent-show-on-hover">
                 <div class="box row-reverse">
                     <form action="/seller/review/{{$review->id}}" method="POST">
                         @csrf
                         @method('DELETE')
-                        <a href="#" onclick="$(this).closest('form').submit()"><i class="material-icons red-text tiny text-right">clear</i></a>
+                        <a href="#" onclick="$(this).closest('form').submit()"><i class="material-icons red-text tiny text-right show-on-hover">clear</i></a>
                     </form>
                 </div>
                 <div class="box space-between">
@@ -19,7 +19,7 @@
                     </div>
                     <div class="box">
                         <span class="padding-right-10">{{Str::limit($review->product->name,50)}}</span>
-                        <img class="item-review" src="https://www.w3schools.com/w3css/img_snowtops.jpg" alt="">
+                        <img class="item-review" src="{{Storage::url($review->product->image[count($review->product->image)-1]->url)}}" alt="">
                     </div>
                 </div>
                 <div class="star">

@@ -99,21 +99,15 @@
         <div class="space"></div>
 
         <div class="white padding-20">
-            <div class="review">
-                <div class="box">
-                    <img class="profile" src="https://www.w3schools.com/w3css/img_avatar3.png" alt="profile-images">
-                    <span class="padding-left-10">John Doe</span>
+            @include('partial._review',['reviews'=>$reviews])
+            @if($product->review->count() > 5)
+                <div class="center padding-10">
+                    <a href="/reviews/{{$product->id}}" class="btn grey darken-3 load-more">See More</a>
                 </div>
-                <div class="star">
-                    <i class="tiny material-icons">star</i>
-                    <i class="tiny material-icons">star</i>
-                    <i class="tiny material-icons">star</i>
-                    <i class="tiny material-icons">star_half</i>
-                    <i class="tiny material-icons">star_border</i>
-                    <span class="padding-left-10 date"><sup>11/11/2020</sup></span>
-                </div>
-                <div>
-                    Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+            @endif
+            @if($product->review->count() == 0)
+                <div class="center padding-10">
+                    No reviews yet.
                 </div>
             </div>
             <div class="divider"></div>
@@ -121,6 +115,7 @@
             <div class="center padding-10">
                 <a href="/review/{{$product->id}}" class="btn grey darken-3 load-more">See More</a>
             </div>
+            @endif
         </div>
 
         <div class="space"></div>
