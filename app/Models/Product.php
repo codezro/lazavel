@@ -10,6 +10,8 @@ use App\Models\CategoryProducts;
 use App\Models\Image;
 use App\Models\Order;
 use App\Models\Review;
+use App\Models\Favorite;
+use Illuminate\Support\Facades\Auth;
 
 class Product extends Model
 {
@@ -55,5 +57,10 @@ class Product extends Model
     public function review()
     {
         return $this->hasMany(Review::class);
+    }
+
+    public function favorite()
+    {
+        return $this->hasMany(Favorite::Class);
     }
 }
