@@ -9,16 +9,14 @@
         <a href="/view/{{$product->id}}">&#8369; {{number_format($product->sale_price, 2, '.', ',')}}</a>
     </div>
     <span class="star padding-left-5">
-        @if ($product->review->avg('rating') > 0)
-            @for ($stars = 1; $stars <= 5; $stars++)
-                @if ($product->review->avg('rating') >= $stars)
-                    <i class="tiny material-icons">star</i>
-                @elseif ( round( $product->review->avg('rating') + .25 ) >= $stars )
-                    <i class="tiny material-icons">star_half</i>
-                @else
-                    <i class="tiny material-icons">star_border</i>
-                @endif
-            @endfor
-        @endif
+        @for ($stars = 1; $stars <= 5; $stars++)
+            @if ($product->review->avg('rating') >= $stars)
+                <i class="tiny material-icons">star</i>
+            @elseif ( round( $product->review->avg('rating') + .25 ) >= $stars )
+                <i class="tiny material-icons">star_half</i>
+            @else
+                <i class="tiny material-icons">star_border</i>
+            @endif
+        @endfor
     </span>
 </div>

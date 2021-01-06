@@ -32,13 +32,17 @@
                 <div><b>{{$product->name}}</b></div>
                 <div>
                     <span class="star padding-left-5">
-                        <i class="material-icons tiny">star</i>
-                        <i class="material-icons tiny">star</i>
-                        <i class="material-icons tiny">star</i>
-                        <i class="material-icons tiny">star</i>
-                        <i class="material-icons tiny">star</i>
+                        @for ($stars = 1; $stars <= 5; $stars++)
+                            @if ($product->review->avg('rating') >= $stars)
+                                <i class="tiny material-icons">star</i>
+                            @elseif ( round( $product->review->avg('rating') + .25 ) >= $stars )
+                                <i class="tiny material-icons">star_half</i>
+                            @else
+                                <i class="tiny material-icons">star_border</i>
+                            @endif
+                        @endfor
                     </span>
-                    <span class="blue-text">5.0</span>
+                    <span class="blue-text">{{number_format($product->review->avg('rating'),1)}}</span>
                 </div>
                 <div class="view-category">
                     <span>Category:</span>
