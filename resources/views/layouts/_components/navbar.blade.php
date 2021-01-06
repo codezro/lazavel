@@ -22,6 +22,7 @@
                 <li><a href="/address"> Address</a></li>
                 <li><a href="/purchases">Purchases</a></li>
                 <li><a href="/favorites">Favorites</a></li>
+                <li><a href="/profile">Profile</a></li>
             </ul>
         @endguest
     </div>
