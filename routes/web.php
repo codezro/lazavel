@@ -45,3 +45,4 @@ Route::post('/review/{id}', [App\Http\Controllers\ReviewsController::class, 'sto
 
 Route::post('/favorite/{id}', [App\Http\Controllers\FavoritesController::class, 'store']);
 Route::delete('/favorite/{id}', [App\Http\Controllers\FavoritesController::class, 'destroy']);
+Route::get('/favorites', [App\Http\Controllers\FavoritesController::class, 'index']);
