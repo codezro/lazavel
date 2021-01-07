@@ -30,7 +30,7 @@ Route::resource('products', App\Http\Controllers\ProductsController::class);
 Route::patch('/seller/order/{id}', [App\Http\Controllers\SellerController::class, 'order']);
 Route::delete('/seller/review/{id}', [App\Http\Controllers\SellerController::class, 'reviewDestroy']);
 
-Route::get('/list', [App\Http\Controllers\ShopController::class, 'list']);
+Route::get('/search', [App\Http\Controllers\ShopController::class, 'search']);
 Route::get('/view/{id}', [App\Http\Controllers\ShopController::class, 'view']);
 Route::get('/reviews/{id}', [App\Http\Controllers\ShopController::class, 'reviews']);
 

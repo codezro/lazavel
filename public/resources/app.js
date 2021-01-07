@@ -33,4 +33,14 @@ $(document).ready(function(){
             $('input.input-quantity').val(parseInt($('input.input-quantity').val())-1);
         }
     });
+
+    $('#result-sort').change(function(){
+        $('#category-sort').submit();
+    });
+
+    $('button.category').click(function(e){
+        $('input[name="category_id"]').val( $(this).attr('data-id'));
+        $('input[name="category_name"]').val( $(this).attr('data-name'));
+        $('#category-form').submit();
+    });
 });

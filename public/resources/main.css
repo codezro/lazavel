@@ -172,6 +172,13 @@ div.breadcrumb{
   margin: 5px 3px 0 0;
 }
 
+.category-round.selected{
+  background-color: #E24A1A !important;
+  color: #FFF;
+  border: #E24A1A;
+  font-weight: bold;
+}
+
 .filter-info{
   justify-content: space-between;
   align-items: center;

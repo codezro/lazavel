@@ -17,7 +17,7 @@ class CategoriesSeeder extends Seeder
         DB::table('categories')->insert([
             ['name' => 'Mobiles, Gadgets & Accessories'],
             ['name' => 'Laptops & Computers'],
-            ['name' => 'Toys, Games & Collectibles'],
+            ['name' => 'Toys & Collectibles'],
             ['name' => 'Gaming'],
             ['name' => 'Babies & Kids'],
             ['name' => 'Home & Living'],
