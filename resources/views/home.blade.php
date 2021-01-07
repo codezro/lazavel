@@ -9,11 +9,15 @@
 </div>
 <div class="main">
     <div class="space"></div>
-    <div class="box sub categories">
-        @foreach ($categories as $category)
-            <a href="" class="btn">{{$category->name}}</a>
-        @endforeach
-    </div>
+    <form action="/search" id="category-form" method="GET">
+        <input type="hidden" name="category_id">
+        <input type="hidden" name="category_name">
+        <div class="box sub categories">
+            @foreach ($categories as $category)
+                <button type="button" data-name="{{$category->name}}" data-id="{{$category->id}}" class="category btn">{{$category->name}}</button>
+            @endforeach
+        </div>
+    </form>
     <div class="box sub space"><b>Just for you</b></div>
     <div class="box sub products">
         @foreach ($products as $product)
@@ -22,6 +26,6 @@
     </div>
 </div>
 <div class="center padding-20">
-    <a href="/list" class="btn grey darken-3 load-more">Load More</a>
+    <a href="/search" class="btn grey darken-3 load-more">Load More</a>
 </div>
 @endsection
