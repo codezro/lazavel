@@ -2,10 +2,24 @@
 
 @section('content')
 <div class="carousel carousel-slider">
-    <a class="carousel-item" href="#one!"><img src="https://lorempixel.com/800/400/food/6"></a>
-    <a class="carousel-item" href="#two!"><img src="https://lorempixel.com/800/400/food/7"></a>
-    <a class="carousel-item" href="#three!"><img src="https://lorempixel.com/800/400/food/5"></a>
-    <a class="carousel-item" href="#four!"><img src="https://lorempixel.com/800/400/food/4"></a>
+    @php
+        $count = 1;
+        foreach ($products as $product)
+        {
+            if ($count%4 == 1)
+            {  
+                echo '<div class="carousel-item row">';
+            }
+                echo '<a href="/view/'.$product->id.'"><img class="col s3" src="'.Storage::url($product->image[count($product->image)-1]->url).'"></a>';
+                
+            if ($count%4 == 0)
+            {
+                echo '</div>';
+            }
+            $count++;
+        }
+    @endphp
+        
 </div>
 <div class="main">
     <div class="space"></div>
