@@ -16,18 +16,22 @@ class ShopController extends Controller
         return view('home',['products' => $products, 'categories' => $categories]);
     }
     
-    public function list()
-    {
-        $products = Product::where('status',1)->with('image')->get();
+    public function search(Request $request)
+    {   
+        $products = Product::searchName($request->keyword)
+                ->filterCategory($request->category_id)
+                ->sortResultBy($request->sort)
+                ->with('image')->where('status', 1)
+                ->paginate(12);
         $categories = Category::all();
-        return view('shop.list',['products' => $products, 'categories' => $categories]);
+        return view('shop.search',['products' => $products, 'categories' => $categories]);
     }
 
     public function view($id)
     {
         $product = Product::with('image')->find($id);
         $reviews = Review::where('product_id',$id)->limit(5)->get();
-        $products = Product::where('status',1)->limit(10)->with('image')->get();
+        $products = Product::getItemsBy(10)->with('image')->get();
         return view('shop.view',['product' => $product,'products' => $products,'reviews'=> $reviews]);
     }
 

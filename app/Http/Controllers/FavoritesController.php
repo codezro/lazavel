@@ -14,6 +14,12 @@ class FavoritesController extends Controller
         $this->middleware('auth');
     }
 
+    public function index()
+    {
+        $favorites = Favorite::where('user_id',Auth::id())->with('product')->get();
+        return view('pages.favorites', ['favorites' => $favorites]);
+    }
+
     public function store($productId)
     {
         Favorite::create([

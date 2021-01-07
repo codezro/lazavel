@@ -7,10 +7,10 @@
             @foreach($orders as $order)
                 <div class="width-100 order box">
                     <div class="flex-1">
-                        <img src="{{Storage::url($order->product->image[count($order->product->image)-1]->url)}}" alt="profile-images">
+                        <a href="/view/{{$order->product->id}}"><img src="{{Storage::url($order->product->image[count($order->product->image)-1]->url)}}" alt="product-image"></a>
                     </div>
                     <div class="flex-4">
-                        <div class="padding-left-10">{{$order->product->name}}</div>
+                        <div class="padding-left-10"><a href="/view/{{$order->product->id}}">{{$order->product->name}}</a></div>
                         <div class="padding-left-10">{{$order->quantity}} pc(s)</div>
                         <div class="padding-left-10">Order Total: {{number_format($order->total_price, 2, '.', ',')}}</div>
                         <div class="padding-left-10"><b>Status:</b> {{$order->status}}</div>
