@@ -19,6 +19,42 @@ class Product extends Model
     use SoftDeletes;
     protected $guarded = [];
 
+    public function scopeFilterCategory($query,$categoryId)
+    {
+        return $query->whereHas('categoryProducts' , function ($query) use($categoryId) {
+            if ($categoryId){
+                $query->where('category_id',$categoryId);
+            }
+        });
+    }
+
+    public function scopeSortResultBy($query,$sortType)
+    {
+        switch ($sortType) {
+            case 'popularity':
+                return $query->withCount('order')->orderBy('order_count','desc');
+                break;
+            case 'relevance':
+                return $query->withCount('review')->orderBy('review_count','desc');
+                break;
+            case 'low-high':
+                return $query->orderBy('sale_price','asc');
+                break;
+            case 'high-low':
+                return $query->orderBy('sale_price','desc');
+                break;
+            case 'newest':
+                return $query->orderBy('created_at','desc');
+                break;
+            case 'oldest':
+                return $query->orderBy('created_at','asc');
+                break;
+            default:
+                return $query->withCount('order')->orderBy('order_count','desc');
+                break;
+        }
+    }
+    
     public function scopeSearchName($query,$search)
     {
         return $query->orWhere('name','LIKE','%'.$search.'%');
