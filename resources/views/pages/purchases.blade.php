@@ -20,7 +20,7 @@
                     <div class="flex-3"><i class="tiny material-icons orange-text">place</i> {{$order->address->street}}, {{$order->address->city}}, {{$order->address->province}}, {{$order->address->postal_code}}</div>
                     <div class="flex-1">
                         @if($order->review->count())
-                            <a class="waves-effect waves-light btn right"><i class="material-icons right">check</i>Rated</a>
+                            <a class="waves-effect waves-light btn width-100 grey white-text">Reviewed</a>
                         @else
                             <a href="/purchases/{{$order->id}}/review" class="waves-effect width-100 btn orange darken-4" @if(strtolower($order->status) != 'completed') disabled : '' @endif >Rate</a>
                         @endif

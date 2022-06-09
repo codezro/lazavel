@@ -4,11 +4,19 @@
 <div class="main-body">
     <div class="sub-body">
         <div class="white box padding-20">
-            <div class="flex-1 padding-5">
-                <img class="view-main" src="{{Storage::url($product->image[count($product->image)-1]->url)}}" alt="">
+            <div class="flex-1 padding-5 level-1">
+                @foreach ($product->image->reverse() as $img)
+                    <div class="mySlides fade">
+                        <img class="view-main materialboxed" src="{{Storage::url($img->url)}}" alt="">
+                    </div>
+                @endforeach
+                <div class="level-2">
+                    <a class="prev">&#10094;</a>
+                    <a class="next">&#10095;</a>
+                </div>
             </div>
-            <div class="flex-1 padding-5 view-thumbnail">
-                @foreach ($product->image as $img)
+            <div class="flex-1 padding-5 thumbnails">
+                @foreach ($product->image->reverse() as $img)
                     <img class="view-thumbnail" src="{{Storage::url($img->url)}}" alt="thumbnail">
                 @endforeach
             </div>
@@ -47,7 +55,7 @@
                 <div class="view-category">
                     <span>Category:</span>
                     @foreach ($product->categoryProducts as $value)
-                        <span class="category-round blue-text">{{$value->category->name}}</span>
+                        <a href="/search?category_id={{$value->category->id}}" class="category-round blue-text">{{$value->category->name}}</a>
                     @endforeach
                 </div>
                 <form action="/checkout/{{$product->id}}" method="POST">
@@ -59,7 +67,7 @@
                         </div>
                         <div class="view-buy">
                                 @csrf
-                                <button class="view-buy center">Buy Now</button>
+                                <button class="view-buy center" @if($product->stock ==0) disabled @endif>Buy Now</button>
                         </div>
                     </div>
                     @if ($product->stock)
@@ -113,12 +121,6 @@
                 <div class="center padding-10">
                     No reviews yet.
                 </div>
-            </div>
-            <div class="divider"></div>
-
-            <div class="center padding-10">
-                <a href="/review/{{$product->id}}" class="btn grey darken-3 load-more">See More</a>
-            </div>
             @endif
         </div>
 
